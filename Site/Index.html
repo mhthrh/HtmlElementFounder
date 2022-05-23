@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .column {
+            flex: 50%;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>HTML Element Finder</h2>
+<br>
+<br>
+<div class="row">
+    <div class="column" style="background-color:#aaa;">
+        <label>Thread Count: </label><input id="InpThread">
+        <br>
+        <br>
+        <label>URL : </label><input id="InpAddress">
+        <br>
+        <br>
+        <button id="BtnSubmit">Submit</button>
+    </div>
+</div>
+<div>
+    <label id="LBLResult"></label>
+</div>
+
+<script>
+    const SignInButton = document.getElementById("BtnSubmit");
+
+    SignInButton.addEventListener("click", (e) => {
+        let ThreadCount = document.getElementById("InpThread");
+        let Address = document.getElementById("InpAddress");
+        document.getElementById('LBLResult').innerHTML=""
+        fetch('/find', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json; charset=UTF-8",
+
+            },
+            body: JSON.stringify({
+                "threadCount"   :parseInt(ThreadCount.value),
+                "address"   :Address.value,
+            }),
+        })
+            .then(function (response){
+                return response.text()
+            })
+            .then(function (data){
+                console.log(data)
+                document.getElementById('LBLResult').innerHTML = data;
+
+            });
+
+    })
+
+</script>
+</body>
+</html>
