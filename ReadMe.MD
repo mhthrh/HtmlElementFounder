@@ -6,11 +6,11 @@ Table of contents
 
 <!--ts-->
 * [Introduction](#Introduction)
-* [Start Application](#Start Application)
+* [Start Application](#StartApplication)
   * [Services](#Services)
-      * [Single web page](#Single web page)
-      * [Restfull Api](#Restfull Api)
-* [Request and Response Parameters](#Request and Response Parameters)
+      * [Single web page](#SingleWebPage)
+      * [Restfull Api](#RestfullApi)
+* [Request and Response Parameters](#RequestAndResponseParameters)
 * [Performance](#Performance)
 <!--te-->
 Introduction
@@ -19,7 +19,7 @@ It takes a website URL and thread count as an input parameters and provides gene
 about the contents of the page such as links, heading, title, version and more information.
 
 
-Start Application
+StartApplication
 ============
 
 - Build
@@ -39,17 +39,17 @@ Services
 ============
 
 
-Single web page
+SingleWebPage
 ============
 - Web page application
   - /page: takes address and count of workers, and shows json result on the page.
 
-Restfull Api
+RestfullApi
 ============
 - Post rest API
   - /find: takes request json and return json response
 
-Request and Response Parameters
+RequestAndResponseParameters
 ============
 - Request
 ```json
